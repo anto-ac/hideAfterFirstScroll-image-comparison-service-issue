@@ -1,0 +1,38 @@
+version: "2.1"
+
+services:
+  selenium-hub:
+    image: selenium/hub:3.141.59-palladium
+    ports:
+    - "4444"
+    depends_on:
+      - selenium-chrome-1
+      - selenium-firefox-1
+
+  selenium-chrome-1: &node-chrome
+    image: selenium/node-chrome:3.141.59-palladium
+    ports:
+    - "5555"
+    shm_size: 2g
+    environment:
+    - HUB_PORT_4444_TCP_ADDR=selenium-hub
+    - HUB_PORT_4444_TCP_PORT=4444
+
+  selenium-firefox-1:
+    <<: *node-chrome
+    image: selenium/node-firefox:3.141.59-palladium
+    ports:
+    - "5555"
+
+  ui-test:
+    build: .
+    depends_on:
+      - selenium-hub
+    volumes:
+      - ./src/config/:/src/config
+      - ./test-output/:/home/test/test-output
+      - ./visual-regression/:/home/test/visual-regression
+    environment:
+      - PORT_SELENIUM_HUB
+      - PORT_SELENIUM_NODE
+    command: npm run test

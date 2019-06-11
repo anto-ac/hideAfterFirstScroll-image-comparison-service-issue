@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+          "*": [ "./*" ],
+          "src/*": ["./src/*"]
+      },
+      "module": "commonjs",
+      "target": "es6",
+      "types": ["node", "@wdio/sync", "@wdio/mocha-framework"]
+  },
+  "include": [
+      "./src/**/*.ts"
+  ]
+}

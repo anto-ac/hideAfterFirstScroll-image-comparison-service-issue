@@ -1,0 +1,8 @@
+node_modules/
+visual-regression/
+test-output/
+
+# editors
+.vscode
+
+npm-debug.log
