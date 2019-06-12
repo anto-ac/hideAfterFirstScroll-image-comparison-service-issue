@@ -35,4 +35,4 @@ services:
     environment:
       - PORT_SELENIUM_HUB
       - PORT_SELENIUM_NODE
-    command: npm run test
+    command: npm run test-docker

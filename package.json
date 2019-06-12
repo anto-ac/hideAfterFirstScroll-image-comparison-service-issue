@@ -2,7 +2,8 @@
   "name": "checkElement-wdio-wdio-image-comparison-service-issue",
   "version": "1.0.0",
   "scripts": {
-    "test": "npm run waitforservices && wdio src/config/wdio.conf.js --hostname selenium-hub",
+    "test": "wdio src/config/wdio.conf.js",
+    "test-docker": "npm run waitforservices && wdio src/config/wdio.conf.js --hostname selenium-hub",
     "waitforservices": "node src/waitforservices.js"
   },
   "author": "Antonello Caboni",
@@ -16,6 +17,7 @@
     "@wdio/cli": "^5.10.0",
     "@wdio/local-runner": "^5.10.0",
     "@wdio/mocha-framework": "^5.9.4",
+    "@wdio/selenium-standalone-service": "^5.9.3",
     "@wdio/spec-reporter": "^5.9.3",
     "@wdio/sync": "^5.10.0",
     "chai": "^4.1.2",
