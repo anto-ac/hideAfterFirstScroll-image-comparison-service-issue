@@ -1,13 +1,7 @@
 const { join } = require('path');
 
-const chromeOptionsArgs = [
-  // This value of font-render-hinting is to ensure that all text is rendered exactly in the
-  // same way on headless as it does on "headful".
-  '--font-render-hinting=slight',
-  '--window-size=519,800',
-];
-
 let config = {
+  runner: 'local',
   maxInstances: 2,
   specs: [
     "./src/specs/*.ts"
@@ -16,7 +10,9 @@ let config = {
   {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      args: chromeOptionsArgs,
+      args: [
+        '--window-size=519,800',
+      ],
     },
   }],
   sync: true,
