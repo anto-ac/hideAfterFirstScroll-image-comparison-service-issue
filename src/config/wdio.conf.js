@@ -33,7 +33,7 @@ let config = {
   reporterOptions: {
     writeStandardOutput: true
   },
-  services: [
+  services: [ 'selenium-standalone',
     ['image-comparison',
     // The options
       {
